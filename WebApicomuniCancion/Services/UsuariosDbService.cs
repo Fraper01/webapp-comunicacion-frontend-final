@@ -43,7 +43,7 @@ namespace WebApicomuniCancion.Services
 
         public async Task<Usuarios?> GetUsuarioByIdAsync(int id)
         {
-            var sql = "SELECT id_user, full_name, user, password, fecha_registro, Usuario_Crea, Equipo_Crea FROM Usuarios WHERE id_user = @ID"; // <--- CAMBIO: ? a @ID para MySQL
+            var sql = "SELECT id_user, full_name, user, password, fecha_registro, Usuario_Crea, Equipo_Crea FROM Usuarios WHERE id_user = @ID"; 
             // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
 
             return await ExecuteReaderAsync<Usuarios>(sql,
@@ -65,7 +65,7 @@ namespace WebApicomuniCancion.Services
             {
                 // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
                 using (var command = new MySqlCommand( 
-                    "INSERT INTO Usuarios (full_name, user, password, fecha_registro, Usuario_Crea, Equipo_Crea) VALUES (@fullName, @user, @password, @fechaRegistro, @usuarioCrea, @equipoCrea)", // <--- CAMBIO: ? a @parametro
+                    "INSERT INTO Usuarios (full_name, user, password, fecha_registro, Usuario_Crea, Equipo_Crea) VALUES (@fullName, @user, @password, @fechaRegistro, @usuarioCrea, @equipoCrea)", 
                     connection))
                 {
                     command.Parameters.AddWithValue("@fullName", usuarios.full_name); 
@@ -87,7 +87,7 @@ namespace WebApicomuniCancion.Services
             {
                 // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
                 using (var command = new MySqlCommand( 
-                    "UPDATE Usuarios SET full_name = @fullName, user = @user, password = @password, fecha_registro = @fechaRegistro, Usuario_Crea = @usuarioCrea, Equipo_Crea = @equipoCrea WHERE id_user = @ID", // <--- CAMBIO: ? a @parametro
+                    "UPDATE Usuarios SET full_name = @fullName, user = @user, password = @password, fecha_registro = @fechaRegistro, Usuario_Crea = @usuarioCrea, Equipo_Crea = @equipoCrea WHERE id_user = @ID", 
                     connection))
                 {
                     command.Parameters.AddWithValue("@fullName", usuarios.full_name);

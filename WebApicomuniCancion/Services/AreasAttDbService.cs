@@ -44,7 +44,7 @@ namespace WebApicomuniCancion.Services
 
         public async Task<Areas_Att?> GetAreaAttByIdAsync(int id)
         {
-            var sql = "SELECT Id_AreaAtt, Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea FROM Areas_Atte WHERE Id_AreaAtt = @ID"; // <--- CAMBIO: ? a @ID para MySQL
+            var sql = "SELECT Id_AreaAtt, Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea FROM Areas_Atte WHERE Id_AreaAtt = @ID"; 
             // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
 
             return await ExecuteReaderAsync<Areas_Att>(sql,
@@ -66,7 +66,7 @@ namespace WebApicomuniCancion.Services
             {
                 // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
                 using (var command = new MySqlCommand( 
-                    "INSERT INTO Areas_Atte (Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea) VALUES (@areaDesarrollo, @fechaRegistro, @descripcionArea, @usuarioCrea, @equipoCrea)", // <--- CAMBIO: ? a @parametro
+                    "INSERT INTO Areas_Atte (Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea) VALUES (@areaDesarrollo, @fechaRegistro, @descripcionArea, @usuarioCrea, @equipoCrea)", 
                     connection))
                 {
                     command.Parameters.AddWithValue("@areaDesarrollo", areas_att.Area_Desarrollo); 
@@ -87,7 +87,7 @@ namespace WebApicomuniCancion.Services
             {
                 // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
                 using (var command = new MySqlCommand( 
-                    "UPDATE Areas_Atte SET Area_Desarrollo = @areaDesarrollo, Fecha_Registro = @fechaRegistro, Descipcion_Area = @descripcionArea, Usuario_Crea = @usuarioCrea, Equipo_Crea = @equipoCrea WHERE Id_AreaAtt = @ID", // <--- CAMBIO: ? a @parametro
+                    "UPDATE Areas_Atte SET Area_Desarrollo = @areaDesarrollo, Fecha_Registro = @fechaRegistro, Descipcion_Area = @descripcionArea, Usuario_Crea = @usuarioCrea, Equipo_Crea = @equipoCrea WHERE Id_AreaAtt = @ID", 
                     connection))
                 {
                     command.Parameters.AddWithValue("@areaDesarrollo", area_att.Area_Desarrollo);

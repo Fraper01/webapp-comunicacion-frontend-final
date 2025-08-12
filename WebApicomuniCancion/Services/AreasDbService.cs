@@ -44,7 +44,7 @@ namespace WebApicomuniCancion.Services
 
         public async Task<Area?> GetAreaByIdAsync(int id)
         {
-            var sql = "SELECT Id_Area, Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea FROM Areas WHERE Id_Area = @ID"; // <--- CAMBIO: ? a @ID para MySQL
+            var sql = "SELECT Id_Area, Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea FROM Areas WHERE Id_Area = @ID"; 
             // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
 
             return await ExecuteReaderAsync<Area>(sql,
@@ -66,7 +66,7 @@ namespace WebApicomuniCancion.Services
             {
                 // #pragma warning disable CA1416 // Validar la compatibilidad de la plataforma
                 using (var command = new MySqlCommand( 
-                    "INSERT INTO Areas (Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea) VALUES (@areaDesarrollo, @fechaRegistro, @descripcionArea, @usuarioCrea, @equipoCrea)", // <--- CAMBIO: ? a @parametro
+                    "INSERT INTO Areas (Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea) VALUES (@areaDesarrollo, @fechaRegistro, @descripcionArea, @usuarioCrea, @equipoCrea)", 
                     connection))
                 {
                     command.Parameters.AddWithValue("@areaDesarrollo", area.Area_Desarrollo); 
