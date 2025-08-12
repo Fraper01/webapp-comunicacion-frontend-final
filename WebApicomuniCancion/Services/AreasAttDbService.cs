@@ -10,14 +10,10 @@ namespace WebApicomuniCancion.Services
 {
     public class AreasAttDbService : BaseDbService, IAreasAttDbService
     {
-        // Constructor modificado para recibir IConfiguration
         public AreasAttDbService(IConfiguration configuration) : base(configuration)
         {
-            // El constructor de BaseDbService ahora también debe recibir IConfiguration
-            // y pasarla a su propio constructor.
         }
 
-        // Método de mapeo de OleDbDataReader a MySqlDataReader
         private Areas_Att MapAreaAttFromReader(MySqlDataReader reader) 
         {
             return new Areas_Att

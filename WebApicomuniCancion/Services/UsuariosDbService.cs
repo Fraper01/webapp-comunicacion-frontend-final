@@ -10,11 +10,8 @@ namespace WebApicomuniCancion.Services
 {
     public class UsuariosDbService : BaseDbService, IUsuariosDbService
     {
-        // Constructor modificado para recibir IConfiguration
         public UsuariosDbService(IConfiguration configuration) : base(configuration)
         {
-            // El constructor de BaseDbService ahora también debe recibir IConfiguration
-            // y pasarla a su propio constructor.
         }
 
         private Usuarios MapUsuarioFromReader(MySqlDataReader reader) 

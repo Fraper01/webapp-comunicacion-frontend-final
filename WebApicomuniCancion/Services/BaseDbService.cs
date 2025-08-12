@@ -28,12 +28,12 @@ namespace WebApicomuniCancion.Services
             {
                 Console.Error.WriteLine($"Error de base de datos MySQL al abrir la conexión: {ex.Message}");
                 connection.Dispose(); 
-                throw; // Re-lanzar la excepción para que el llamador pueda manejarla
+                throw; // Re-lanzar la excepción 
             }
             catch (Exception ex)
             {
                 Console.Error.WriteLine($"Error inesperado al abrir la conexión MySQL: {ex.Message}");
-                connection.Dispose(); // Asegurarse de cerrar y liberar la conexión si falla al abrir
+                connection.Dispose(); 
                 throw;
             }
         }

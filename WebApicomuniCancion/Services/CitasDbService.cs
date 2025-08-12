@@ -5,17 +5,14 @@ using System.Threading.Tasks;
 using WebApicomuniCancion.Models.Entities;
 using Microsoft.Extensions.Configuration;
 using WebApicomuniCancion.Interfaces;
-using System.Linq; // Necesario para .Contains()
+using System.Linq; 
 
 namespace WebApicomuniCancion.Services
 {
     public class CitasDbService : BaseDbService, ICitasDbService
     {
-        // Constructor modificado para recibir IConfiguration
         public CitasDbService(IConfiguration configuration) : base(configuration)
         {
-            // El constructor de BaseDbService ahora también debe recibir IConfiguration
-            // y pasarla a su propio constructor.
         }
 
         private Cita MapCitaFromReader(MySqlDataReader reader)
@@ -147,10 +144,10 @@ namespace WebApicomuniCancion.Services
                 {
                     command.Parameters.AddWithValue("@estatus", newStatus);
                     command.Parameters.AddWithValue("@ID", id);
-                    return await command.ExecuteNonQueryAsync(); // command.ExecuteNonQueryAsync() SÍ devuelve int
+                    return await command.ExecuteNonQueryAsync(); 
                 }
             });
-            return rowsAffected > 0; // Retorna true si se actualizó al menos una fila
+            return rowsAffected > 0; 
         }
 
         public async Task DeleteCitaAsync(int id)

@@ -9,14 +9,10 @@ namespace WebApicomuniCancion.Services
 {
     public class AreasDbService : BaseDbService, IAreasDbService
     {
-        // Constructor modificado para recibir IConfiguration
         public AreasDbService(IConfiguration configuration) : base(configuration)
         {
-            // El constructor de BaseDbService ahora también debe recibir IConfiguration
-            // y pasarla a su propio constructor.
         }
 
-        // Método de mapeo de OleDbDataReader a MySqlDataReader
         private Area MapAreaFromReader(MySqlDataReader reader) 
         {
             return new Area
@@ -43,7 +39,6 @@ namespace WebApicomuniCancion.Services
         {
             var sql = "SELECT Id_Area, Area_Desarrollo, Fecha_Registro, Descipcion_Area, Usuario_Crea, Equipo_Crea FROM Areas";
 
-            // El ExecuteReaderListAsync ya espera MySqlDataReader
             return await ExecuteReaderListAsync(sql, async (reader) => await Task.FromResult(MapAreaFromReader(reader)));
         }
 
@@ -54,11 +49,11 @@ namespace WebApicomuniCancion.Services
 
             return await ExecuteReaderAsync<Area>(sql,
                 (command) => command.Parameters.AddWithValue("@ID", id),
-                async (reader) => // El reader aquí es MySqlDataReader
+                async (reader) => 
                 {
                     if (await reader.ReadAsync())
                     {
-                        return MapAreaFromReader(reader); // Usa el método privado de mapeo
+                        return MapAreaFromReader(reader); 
                     }
                     return null;
                 });

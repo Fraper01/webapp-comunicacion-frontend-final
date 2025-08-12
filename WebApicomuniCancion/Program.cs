@@ -1,13 +1,12 @@
 using WebApicomuniCancion.Services;
-using Microsoft.Extensions.Configuration; // Ya lo tienes, pero es necesario para IConfiguration
+using Microsoft.Extensions.Configuration; 
 using WebApicomuniCancion.Interfaces;
-using Microsoft.AspNetCore.Builder; // Asegúrate de tener este using para WebApplicationBuilder y WebApplication
-using Microsoft.Extensions.DependencyInjection; // Asegúrate de tener este using para AddCors
+using Microsoft.AspNetCore.Builder; 
+using Microsoft.Extensions.DependencyInjection; 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Acceder a la configuración de CorsOrigins desde appsettings.json
-// Asegúrate de que appsettings.json tiene la sección "CorsOrigins" con "Allowed"
 var corsOrigins = builder.Configuration.GetSection("CorsOrigins:Allowed").Get<string[]>();
 
 // Add services to the container.
@@ -15,23 +14,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// *** INICIO DE LA CONFIGURACIÓN DEL SERVICIO CORS ***
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowWebAppAccess", // Nombre de tu política CORS
+    options.AddPolicy("AllowWebAppAccess", 
         policy =>
         {
             if (corsOrigins != null && corsOrigins.Length > 0)
             {
-                policy.WithOrigins(corsOrigins) // Permite los orígenes definidos en appsettings.json
-                      .AllowAnyHeader()       // Permite cualquier tipo de encabezado
-                      .AllowAnyMethod();      // Permite cualquier método HTTP (GET, POST, PUT, DELETE)
-                // .AllowCredentials(); // Descomentar si tu cliente necesita enviar cookies o credenciales (raro en tu caso inicial)
+                policy.WithOrigins(corsOrigins) 
+                      .AllowAnyHeader()       
+                      .AllowAnyMethod();     
             }
             else
             {
-                // Fallback para desarrollo si no hay orígenes configurados.
-                // ¡ADVERTENCIA: NO USAR AllowAnyOrigin() en PRODUCCIÓN sin control estricto!
                 policy.AllowAnyOrigin()
                       .AllowAnyHeader()
                       .AllowAnyMethod();
@@ -39,7 +34,6 @@ builder.Services.AddCors(options =>
             }
         });
 });
-// *** FIN DE LA CONFIGURACIÓN DEL SERVICIO CORS ***
 
 
 builder.Services.AddScoped<IAreasDbService, AreasDbService>();
@@ -56,12 +50,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// app.UseHttpsRedirection(); // Generalmente se añade aquí si usas HTTPS
-
 // *** HABILITAR EL MIDDLEWARE CORS EN EL PIPELINE DE SOLICITUDES ***
-// Asegúrate de que esto esté ANTES de UseAuthorization() y MapControllers()
-app.UseCors("AllowWebAppAccess"); // Usa el mismo nombre de política que definiste arriba
-// *** FIN DE HABILITAR EL MIDDLEWARE CORS ***
+app.UseCors("AllowWebAppAccess"); 
 
 app.UseAuthorization();
 

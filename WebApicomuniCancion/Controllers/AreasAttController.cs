@@ -1,5 +1,4 @@
-﻿// Ubicación: WebApicomuniCancion/Controllers/AreasController.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -13,36 +12,31 @@ namespace WebApicomuniCancion.Controllers
     [Route("api/[controller]")]
     public class AreasAttController : ControllerBase
     {
-        // Si usaras ILogger para logging profesional:
         private readonly ILogger<AreasController> _logger;
 
-        private readonly IAreasAttDbService _areasAttDbService; // Correcto: inyecta la interfaz
+        private readonly IAreasAttDbService _areasAttDbService; 
 
-        // Constructor para inyección de dependencias
-        public AreasAttController(IAreasAttDbService areasAttDbService, ILogger<AreasController> logger) // <-- Inyectamos ILogger
+        public AreasAttController(IAreasAttDbService areasAttDbService, ILogger<AreasController> logger) 
         {
             _areasAttDbService = areasAttDbService;
             _logger = logger;
         }
 
-        // GET: api/Areas - Obtener todas las áreas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Areas_Att>>> GetAreasAtt()
         {
             try
             {
                 var areas = await _areasAttDbService.GetAllAreasAttAsync();
-                return Ok(areas); // 200 OK con la lista de áreas
+                return Ok(areas); 
             }
-            catch (Exception ex) // Captura cualquier error del servicio
+            catch (Exception ex) 
             {
-                // Registra el error (en producción usarías _logger.LogError)
                 Console.Error.WriteLine($"Error en GET /api/AreasAtt: {ex.Message}");
-                return StatusCode(500, "Error interno del servidor al recuperar los datos."); // 500 Internal Server Error
+                return StatusCode(500, "Error interno del servidor al recuperar los datos."); 
             }
         }
 
-        // GET: api/Areas/5 - Obtener un área por ID
         [HttpGet("{id}")]
         public async Task<ActionResult<Areas_Att>> GetAreaAtt(int id)
         {
@@ -50,12 +44,12 @@ namespace WebApicomuniCancion.Controllers
             {
                 var areaAtt = await _areasAttDbService.GetAreaAttByIdAsync(id);
 
-                if (areaAtt == null) // Si el servicio devuelve null, el ID no existe
+                if (areaAtt == null) 
                 {
-                    return NotFound($"ÁreaAtt con ID {id} no encontrada."); // 404 Not Found
+                    return NotFound($"ÁreaAtt con ID {id} no encontrada."); 
                 }
 
-                return Ok(areaAtt); // 200 OK con el área encontrada
+                return Ok(areaAtt); 
             }
             catch (Exception ex)
             {
@@ -64,14 +58,12 @@ namespace WebApicomuniCancion.Controllers
             }
         }
 
-        // POST: api/AreasAtt - Añadir una nueva áreaAtt
         [HttpPost]
         public async Task<ActionResult<Area>> PostArea([FromBody] Areas_Att areaAtt)
         {
-            // Validación de entrada simple en el controlador
             if (string.IsNullOrWhiteSpace(areaAtt.Area_Desarrollo))
             {
-                return BadRequest("El nombre del área es obligatorio."); // 400 Bad Request
+                return BadRequest("El nombre del área es obligatorio."); 
             }
             if (!ModelState.IsValid)
             {
@@ -81,7 +73,6 @@ namespace WebApicomuniCancion.Controllers
             try
             {
                 await _areasAttDbService.AddAreaAttAsync(areaAtt);
-                // Si no obtuviste el ID autogenerado, puedes retornar StatusCode(201, areaAtt);
                 return Ok(areaAtt);
             }
             catch (Exception ex)
@@ -91,8 +82,6 @@ namespace WebApicomuniCancion.Controllers
             }
         }
 
-        // PUT: api/Areas/5 - Actualizar un área existente
-        // El ID de la URL debe coincidir con el ID del objeto en el cuerpo
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArea(int id, [FromBody] Areas_Att areaAtt)
         {
@@ -100,14 +89,13 @@ namespace WebApicomuniCancion.Controllers
             {
                 return BadRequest("El ID de la URL no coincide con el ID del áreaAtt en el cuerpo de la solicitud.");
             }
-            if (string.IsNullOrWhiteSpace(areaAtt.Area_Desarrollo)) // Validación de entrada
+            if (string.IsNullOrWhiteSpace(areaAtt.Area_Desarrollo)) 
             {
                 return BadRequest("El nombre del área es obligatorio para la actualización.");
             }
 
             try
             {
-                // Verificar existencia antes de intentar actualizar (reutilizando GetAreaByIdAsync)
                 var existingArea = await _areasAttDbService.GetAreaAttByIdAsync(id);
                 if (existingArea == null)
                 {
@@ -124,13 +112,11 @@ namespace WebApicomuniCancion.Controllers
             }
         }
 
-        // DELETE: api/Areas/5 - Eliminar un área
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteArea(int id)
         {
             try
             {
-                // Verificar existencia antes de intentar eliminar
                 var existingArea = await _areasAttDbService.GetAreaAttByIdAsync(id);
                 if (existingArea == null)
                 {
@@ -138,7 +124,7 @@ namespace WebApicomuniCancion.Controllers
                 }
 
                 await _areasAttDbService.DeleteAreaAttAsync(id);
-                return NoContent(); // 204 No Content
+                return NoContent(); 
             }
             catch (Exception ex)
             {
