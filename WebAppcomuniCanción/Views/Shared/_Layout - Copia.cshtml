@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - comuniCanción</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebAppcomuniCanción.styles.css" asp-append-version="true" />
+    <link rel="shortcut icon" href="~/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    @* Voy a usar la estructura de header, main y footer por los momentos *@
+    <header class ="hearder-img" id="inicio">
+        @*  El header lo voy a colocar en un contenedor header, dentro de este una imagen de fondo, luego por encima tres contenedores, una a la izquierda para el logo, el centro para
+        el menu y a la derecha un boton de Inicio Sección *@
+        <div class="header-contenedor">
+            <div class="header-logo">
+                <img src="../img/ESCUDO_OFICIAL_RM.webp" alt="Logo del sitio">
+            </div>
+            <div class="header-centro">
+                <div class="hearder-titulo">
+                    <h1>comuniCanción</h1>
+                </div>
+                <div class="header-menu">
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  my-transparent-bg border-bottom box-shadow mb-3">
+                        <div class="container-fluid  navbar-expand-sm navbar-toggleable-sm navbar-light"> 
+                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between"> 
+                                 <ul class="navbar-nav flex-grow-1">
+                                         <li class="nav-item active"> 
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Index"><i class="fa-solid fa-house"></i> Inico</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-user"></i> Qué es comuniCanción</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-list"></i> Como Funcionamos</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-list"></i> Quienes Somos</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-list"></i> Servicios</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa-solid fa-comment"></i> Contacto</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-white " asp-area="" asp-controller="Areas" asp-action="Index"><i class="fa-solid fa-briefcase"></i> Áreas de Desarrollo</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav> 
+                </div>
+            </div>
+            <div class="header-inicioSecc">
+                @* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button> *@
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebApp</a>
+            </div>
+        </div>
+    </header>
+    @* voy a dejar este contenedor en el main, averiguar que hace role=main *@
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - WebAppcomuniCanción - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+        </div>
+    </footer>
+    @* script de javascript *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

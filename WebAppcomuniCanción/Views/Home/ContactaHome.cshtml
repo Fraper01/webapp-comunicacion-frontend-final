@@ -1,0 +1,217 @@
+﻿@{
+    ViewData["Title"] = "Primera Consulta Gratis";
+}
+
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section text-secondary bg-light py-5" id="registrate">
+    <div class="container">
+        <div class="heading-group">
+            <h2 class="main-title text-center">
+                <span>CONTÁCTANOS</span>
+            </h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <h3 class="card-title text-center mb-4" ><i class="fas fa-edit me-2"></i>Formulario para Pedir Cita</h3>
+                <form asp-action="Agendar" method="post>
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-user me-2"></i>Datos Personales</legend>
+                        <div class="row"> 
+                            <div class="col-md-6 mb-3"> 
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" maxlength="50" pattern="[A-Za-z ]{2,50}" title="Introduce entre 2 y 50 caracteres" required>
+                            </div>
+                            <div class="col-md-6 mb-3"> 
+                                <label for="apellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" placeholder="Tu apellido" maxlength="50" pattern="[A-Za-z ]{2,50}" title="Introduce entre 2 y 50 caracteres" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="email"
+                                   placeholder="ejemplo@dominio.com"
+                                   pattern="^[a-zA-Z0-9._%+-]+[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" 
+                                   title="Por favor, introduce un correo electrónico válido (ej. usuario@dominio.com)" 
+                                   required>
+                            <div class="form-text">Nunca compartiremos tu correo con nadie más.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono (opcional)</label>
+                            <input type="tel" class="form-control" id="telefono" placeholder="Ej: 612345678" pattern="[0-9]{9}">
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-hand-holding-heart"></i>Paciente</legend>
+                        <div class="mb-3">
+                            <label for="Paciente" class="form-label">Selecciona:</label>
+                            <select class="form-select" id="Paciente" required>
+                                <option selected disabled value="">Elige...</option>
+                                <option value="Ninos">Niño</option>
+                                <option value="Adolecente">Adolecente</option>
+                                <option value="Adultos">Adulto</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-cogs me-2"></i>Tratamientos</legend>
+                        <div class="mb-3">
+                            <label for="tratamiento" class="form-label">Selecciona el tratamiento:</label>
+                            <select class="form-select" id="tratamiento" required>
+                                <option selected disabled value="">Elige...</option>
+                                <option value="LogopediaN">Logopedia Infantil</option>
+                                <option value="Autismo">Tratamiento del Autismo</option>
+                                <option value="LogopediaA">Logopedia para Adultos</option>
+                                <option value="Auditiva">Rehabilitación Auditiva</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-plus-circle me-2"></i>Turnos de Atención</legend>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" value="manana-v" id="manana">
+                            <label class="form-check-label" for="manana">
+                                Mañanas <i class="fas fa-sun text-warning ms-1"></i>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" value="tarde-v" id="tarde">
+                            <label class="form-check-label" for="tarde">
+                                Tardes <i class="fas fa-chair text-info ms-1"></i>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" value="noche-v" id="noche">
+                            <label class="form-check-label" for="noche">
+                                Noches <i class="fas fa-map-marked-alt text-success ms-1"></i>
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="sabado-v" id="sabado">
+                            <label class="form-check-label" for="sabado">
+                                Sabados <i class="fas fa-robot text-secondary ms-1"></i>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="altaUsuario">
+                        <label class="form-check-label" for="altaUsuario">
+                            <i class="fas fa-user-plus me-2 "></i>Deseo darme de alta como usuario.
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" value="" id="altaNewsletter">
+                        <label class="form-check-label" for="altaNewsletter">
+                            <i class="fas fa-newspaper me-2 "></i>Quiero recibir novedades.
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" value="" id="privacidad" required>
+                        <label class="form-check-label" for="privacidad">
+                            <i class="fas fa-lock me-2 "></i>Doy mi consentimiento para que esta web almacene la información que envío para que puedan responder a mi petición.
+                        </label>
+                        <div class="invalid-feedback">
+                            Debe Aceptar antes de Enviar.
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane me-2"></i>Enviar Formulario</button>
+                        <button type="reset" class="btn btn-outline-secondary me-md-2"><i class="fas fa-eraser me-2"></i>Restablecer</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section class="section py-4"> 
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6 text-start">
+                <a class="btn text-decoration-none" asp-controller="Home" asp-action="Terapeutas" style="color: #e83e8c;">
+                    <i class="fa-solid fa-arrow-left me-2"></i>Ir a la página de Conócenos
+                </a>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn text-decoration-none" asp-controller="Home" asp-action="Index" style="color: #e83e8c;">
+                    <i class="fa-solid fa-arrow-right ms-2"></i>Ir a la página de Inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-success-custom text-white"> 
+            <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle me-2"></i>¡Envío Exitoso!</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <p class="lead">Tu Formulario a sido enviados correctamente.</p>
+            <p>Pronto nos pondremos en contacto contigo.</p>
+            <i class="fas fa-thumbs-up fa-3x icon-success-custom my-3"></i> 
+          </div>
+          <div class="modal-footer justify-content-center">
+            <button type="button" class="btn btn-success-custom" data-bs-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form'); 
+        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+        form.addEventListener('submit', function(event) {
+          event.preventDefault(); 
+            
+          if (form.checkValidity()) {
+            successModal.show();
+                
+              setTimeout(() => {
+                form.reset();
+              }, 2000); 
+                
+              console.log("Datos del formulario simulados y enviados con éxito!");
+                
+            } else {
+              form.classList.add('was-validated');
+              console.log("Formulario no válido. Corrige los errores.");
+            }
+        });
+
+        const successModalElement = document.getElementById('successModal');
+        successModalElement.addEventListener('hidden.bs.modal', function () {
+          form.reset();
+          form.classList.remove('was-validated'); 
+        });
+      });
+    </script>

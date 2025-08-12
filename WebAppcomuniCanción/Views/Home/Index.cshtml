@@ -1,0 +1,388 @@
+﻿@{
+    ViewData["Title"] = "Página Inicio";
+}
+
+<section id="Musicoterapia" class="section text-white bg-danger-subtle p-5">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-danger-subtle">
+        <div class="row align-items-center">
+            <div class="col-lg-6 px-0">
+                <h1 class="display-4 fst-italic text-center">Musicoterapia y Logopedia en Madrid</h1>
+                <p class="lead my-3 text-center">
+                    "Vence los obstáculos en la comunicación para ganar una mejor calidad de vida"
+                </p>
+                <p class="lead mb-0 text-center gap-4">
+                    <a class="btn btn-primary btn-lg custom-pink-button" asp-controller="Home" asp-action="Terapeutas">Conócenos</a>
+                    <a class="btn btn-primary btn-lg custom-pink-button" asp-controller="Home" asp-action="Contacta">Quiero pedir cita</a>
+                </p>
+            </div>
+            <div class="col-lg-6 px-0 mh-100">
+                <div class="my-3 text-center">
+                    <iframe src="https://www.youtube.com/embed/b9m1_cfs2XY" title="¿Qué es ComuniCanción?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Musicoterapia-iconos" class="section">
+    <div class="container"> 
+        <div class="row align-items-center">
+            <div class="col-4 px-0">
+                <div class="container text-center" id="container-span">
+                    <span class="icon my-4">
+                        <i aria-hidden="true" class="fas fa-hand-holding-heart"></i>
+                    </span>
+                    <div class="text-white">
+                        <h4 class="">Confía en los mejores profesionales</h4> 
+                    </div> 
+                </div>
+            </div> 
+            <div class="col-4 px-0">
+                <div class="container text-center" id="container-span">
+                    <span class="icon my-4">
+                        <i aria-hidden="true" class="fas fa-thumbs-up"></i>
+                    </span>
+                    <div class="text-white">
+                        <h4 class="">Mejora la comunicación y el lenguaje</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 px-0">
+                <div class="container text-center" id="container-span">
+                    <span class="icon my-4">
+                        <i aria-hidden="true" class="fas fa-smile"></i>
+                    </span>
+                    <div class="text-white">
+                        <h4 class="">Logra mayor seguridad y calidad de vida</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+<section id="que-ofrecemos" class="section py-5" style="background-color: #F8F1F7;">
+    <div class="container">
+        <div class="heading text-center mb-5">
+            <h2 class="main-title text-body-emphasis">
+                <span>¿Qué ofrecemos en ComuniCanción Musicoterapia y Logopedia?</span>
+            </h2>
+        </div>
+
+        <div class="row justify-content-center mb-4 g-4">
+            <div class="col-12 col-md-6 col-lg-5 d-flex">
+                <div class="card h-100 shadow-sm border-0 offer-card card-corner-decoration">
+                    <img src="~/img/logopedia-musicoterapia-ninos (1).webp" class="card-img-top img-fluid resultados-img-hover" alt="Niño con terapeuta de logopedia infantil" style="object-fit: cover; height: 200px;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fw-bold text-body-emphasis mb-3">Logopedia Infantil</h5>
+                        <ul class="list-unstyled flex-grow-1">
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Comienza tu hijo/a a tener dificultades en su aprendizaje y desarrollo?</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Presenta tu hijo/a problemas para comunicarse?</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Tu hijo/a tiene dificultades en su forma de hablar?</li>
+                        </ul>
+                        <div class="mt-auto text-center">
+                            <a class="btn btn-primary offer-button" asp-controller="Home" asp-action="LogopediaInfantil">Quiero saber más...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 d-flex">
+                <div class="card h-100 shadow-sm border-0 offer-card card-corner-decoration">
+                    <img src="~/img/intervencion-autismo-300x225.webp" class="card-img-top img-fluid resultados-img-hover" alt="Niño recibiendo terapia para autismo" style="object-fit: cover; height: 200px;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fw-bold text-body-emphasis mb-3">Tratamiento del Autismo</h5>
+                        <p class="card-text flex-grow-1">
+                            ¿Tu hijo/a tiene un diagnóstico reciente de TEA o quieres mejorar las habilidades comunicativas de tu hijo/a con Autismo?
+                        </p>
+                        <div class="mt-auto text-center">
+                            <a class="btn btn-primary offer-button" asp-controller="Home" asp-action="LogopediaInfantil">Quiero saber más...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center mb-4 g-4">
+
+            <div class="col-12 col-md-6 col-lg-5 d-flex">
+                <div class="card h-100 shadow-sm border-0 offer-card card-corner-decoration">
+                    <img src="~/img/lectura-labial.webp" class="card-img-top img-fluid resultados-img-hover" alt="Adulto en sesión de logopedia" style="object-fit: cover; height: 200px;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fw-bold text-body-emphasis mb-3">Logopedia para Adultos</h5>
+                        <ul class="list-unstyled flex-grow-1">
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Estás teniendo problemas de voz?</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Tienes dificultad para hablar o articular?</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Tienes problemas para comprender el lenguaje oral?</li>
+                        </ul>
+                        <div class="mt-auto text-center">
+                            <a class="btn btn-primary offer-button" asp-controller="Home" asp-action="LogopediaInfantil">Quiero saber más...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-5 d-flex">
+                <div class="card h-100 shadow-sm border-0 offer-card card-corner-decoration">
+                    <img src="~/img/Rehabilitacion-Implante-Coclear.webp" class="card-img-top img-fluid resultados-img-hover" alt="Niña en sesión de rehabilitación auditiva" style="object-fit: cover; height: 200px;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title text-center fw-bold text-body-emphasis mb-3">Rehabilitación Auditiva</h5>
+                        <ul class="list-unstyled flex-grow-1">
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Parece que tu hijo/a no comprende lo que le dicen aunque no tiene problemas de audición?</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Llevas un Implante Coclear, un audífono u otro tipo de prótesis auditiva y quieres mejorar la comprensión de lo que escuchas?</li>
+                            <li><i class="fas fa-check-circle me-2 text-success"></i> ¿Eres una persona sorda interesada en mejorar tus habilidades comunicativas y sociales?</li>
+                        </ul>
+                        <div class="mt-auto text-center">
+                            <a class="btn btn-primary offer-button" asp-controller="Home" asp-action="LogopediaInfantil">Quiero saber más...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+<section id="sabemos-como-ayudarte" class="section py-5" style="background-color: #F8F1F7;">
+    <div class="container">
+        <div class="heading text-center mb-5">
+            <h2 class="main-title text-body-emphasis">
+                <span>En ComuniCanción Musicoterapia y Logopedia sabemos cómo ayudarte</span>
+            </h2>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6 text-body-emphasis mb-4 mb-lg-0 p-5 rounded shadow">
+                <ul class="list-unstyled como-ayudarte-list">
+                    <li class="text-center">
+                        <i class="fas fa-clock me-2 como-ayudarte-icon"></i> Sabemos que llevas tiempo buscando ayuda.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-face-frown-open me-2 como-ayudarte-icon"></i> Sabemos que los problemas del lenguaje y la comunicación se pueden convertir en problemas emocionales, de aislamiento y de estigmatización social.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-at me-2 como-ayudarte-icon"></i> Es por eso que te ofrecemos terapias que funcionan porque...
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-house-chimney-crack me-2 como-ayudarte-icon"></i> <span class="fw-bold">No somos la típica terapia convencional</span>
+                        de Logopedia.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-screwdriver-wrench me-2 como-ayudarte-icon"></i> Combinamos técnicas de Logopedia y Musicoterapia junto a las nuevas tecnologías para obtener mejores resultados.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-percent me-2 como-ayudarte-icon"></i> Hemos diseñado metodologías y programas de 
+                        <span class="fw-bold"> eficacia comprobada</span>.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-music me-2 como-ayudarte-icon"></i> La Musicoterapia es una herramienta 
+                        <span class="fw-bold fst-italic">atractiva para los más pequeños </span> 
+                        o aquellos que tienen más dificultad de adaptarse a una terapia convencional.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-pen-nib me-2 como-ayudarte-icon"></i> La Música activa los dos hemisferios cerebrales, por lo tanto, 
+                        <span class="fw-bold"> estimula el cerebro y, en consecuencia, mejora todos los procesos cognitivos relacionados con el lenguaje.
+                        </span>
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-hand-holding-heart me-2 como-ayudarte-icon"></i> Tenemos 
+                        <span class="fw-bold">mucha experiencia rehabilitando</span> el lenguaje y la audición de muchos niños y adultos.
+                    </li>
+                    <li class="text-center">
+                        <i class="fas fa-user-graduate me-2 como-ayudarte-icon"></i> Nuestra 
+                        <span class="fw-bold">formación es especializada</span> en todos los trastornos del habla y el lenguaje
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-lg-6 text-center position-relative card-corner-decoration">
+                <img src="~/img/logopedia-musicoterapia (1).webp" class="img-fluid rounded shadow-sm resultados-img-hover" alt="Niña tocando un tambor en terapia" style="max-height: 550px; object-fit: cover; width: 100%;">
+
+                <div class="position-absolute bottom-0 end-0 me-3 mb-3">
+                    <a class="btn btn-primary btn-lg custom-pink-button" asp-controller="Home" asp-action="Contacta">Quiero pedir cita</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+<section id="quienes-te-ayudaremos"class="section text-secondary bg-light py-5">
+    <div class="container">
+        <div class="heading">
+            <div class="heading-group">
+                <h2 class="main-title text-danger-emphasis text-center">
+                    <span>¿Quiénes somos en ComuniCanción?</span>
+                </h2>
+            </div>
+        </div>
+        <div class="row align-items-center">
+                <div class="col-12 col-md-5 align-items-center card-corner-decoration-o">
+                    <img src="~/img/alejandra-hernandez-musicoterapeuta.webp" class="img-fluid d-block px-4 resultados-img-hover" alt="Alejandra Hernandez">
+            </div>
+            <div class="col-12 col-md-7 px-4 text-center">
+                <div class="d-none d-md-block text-body-emphasis pe-5 rounded shadow">
+                    <h4 class="text-center">Para confiar, primero necesitas conocer.</h4>
+                    <p> </p>
+                    <p> </p>
+                    <p class="text-center px-4">
+                        «Somos un equipo con formación en Logopedia y Musicoterapia renovando nuestros conocimientos continuamente para ofrecerte el mejor servicio»
+                    </p>
+                    <p> </p>
+                </div>
+                <a class="btn btn-primary btn-lg custom-pink-button" asp-controller="Home" asp-action="Terapeutas">Conócenos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+<section id="como-conseguiras-resultados" class="section py-5">
+    <div class="container">
+        <div class="heading text-center mb-5">
+            <h2 class="main-title text-body-emphasis text-white">
+                <span>¿Cómo conseguirás resultados?</span>
+            </h2>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4 d-flex">
+                <div class="card h-100 border-0 text-center shadow-sm offer-card">
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="result-step-number mb-3">1</div>
+                        <h5 class="card-title fw-bold text-body-emphasis result-step-title mb-3">Pídenos una cita ahora</h5>
+                        <p class="card-text flex-grow-1 text-center">
+                            Evaluaremos tu caso y las necesidades en las áreas que más
+                            necesitan de nuestro apoyo.
+                        </p>
+                        <div class="mt-auto">
+                            <a class="btn btn-primary btn-lg custom-pink-button" asp-controller="Home" asp-action="Contacta">Quiero pedir cita</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 d-flex">
+                <div class="card h-100 border-0 text-center shadow-sm offer-card">
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="result-step-number mb-3">2</div>
+                        <h5 class="card-title fw-bold text-body-emphasis result-step-title mb-3">Creamos el plan</h5>
+                        <p class="card-text flex-grow-1">
+                            Detectadas las necesidades, realizamos una programación personalizada de objetivos que se estructuran periódicamente,
+                            destinados a conseguir avances importantes en el menor tiempo posible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 d-flex">
+                <div class="card h-100 border-0 text-center shadow-sm offer-card">
+                    <div class="card-body d-flex flex-column p-4">
+                        <div class="result-step-number mb-3">3</div>
+                        <h5 class="card-title fw-bold text-body-emphasis result-step-title mb-3">Evaluación de resultados</h5>
+                        <p class="card-text flex-grow-1">
+                            Realizaremos pruebas estandarizadas para comprobar los avances obtenidos y, si es necesario, plantearemos nuevos objetivos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+
+@* --- MODAL DE ÉXITO DE LOGIN --- *@
+<div class="modal fade" id="loginSuccessModal" tabindex="-1" aria-labelledby="loginSuccessModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex justify-content-between align-items-center" style="background-color: #7B3FBC; color: white;">
+                <h5 class="modal-title" id="loginSuccessModalLabel">
+                    <i class="fas fa-check-circle me-2"></i> ¡Inicio de Sesión Exitoso!
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <p class="fs-5">¡Has iniciado sesión correctamente!</p>
+                <p>Bienvenido de nuevo.</p>
+                <div class="my-4">
+                    <i class="fas fa-thumbs-up fa-5x" style="color: #7B3FBC;"></i>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #7B3FBC; border-color: #7B3FBC;">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            console.log("Debug: $(document).ready() se ha ejecutado en Home/Index.cshtml.");
+
+           @if (TempData["ShowLoginSuccessModal"] as bool? == true)
+            {
+                    <text>
+                    console.log("Debug: ViewBag.ShowLoginSuccessModal es TRUE. Intentando mostrar loginSuccessModal...");
+                    $('#loginSuccessModal').modal('show');
+                    </text>
+            }
+
+        });
+    </script>
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

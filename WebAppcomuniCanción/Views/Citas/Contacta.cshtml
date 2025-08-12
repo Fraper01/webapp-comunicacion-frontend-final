@@ -1,0 +1,224 @@
+﻿@model WebAppcomuniCanción.Models.CitaDto
+
+@{
+    ViewData["Title"] = "Pedir Cita Gratuita"; 
+}
+
+<section class="section text-white py-5">
+    <div class="row align-items-center">
+        <div class="col-12 col-md-12 px-4 text-center" id="container-span-m">
+            <span class="icon my-4">
+                <i aria-hidden="true" class="fas fa-music"></i>
+            </span>
+        </div>
+    </div>
+</section>
+
+<section class="section text-secondary bg-light py-5" id="registrate">
+    <div class="container">
+        <div class="heading-group">
+            <h2 class="main-title text-center">
+                <span>CONTÁCTANOS</span>
+            </h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-7">
+                <h3 class="card-title text-center mb-4"><i class="fas fa-edit me-2"></i>Formulario para Pedir Cita</h3>
+
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                <form asp-action="Contacta" method="post">
+                    @Html.AntiForgeryToken() @* Es vital para la seguridad con [ValidateAntiForgeryToken] *@
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-user me-2"></i>Datos Personales</legend>
+                        <div class="row">
+                            <div class="col-md-6 mb-3 form-group">
+                                <label asp-for="Nombre" class="form-label"></label>
+                                <input asp-for="Nombre" type="text" class="form-control" placeholder="Tu nombre">
+                                <span asp-validation-for="Nombre" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3 form-group">
+                                <label asp-for="Apellido" class="form-label"></label>
+                                <input asp-for="Apellido" type="text" class="form-control" placeholder="Tu apellido">
+                                <span asp-validation-for="Apellido" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label asp-for="Email" class="form-label"></label>
+                            <input asp-for="Email" type="email" class="form-control" placeholder="ejemplo@dominio.com">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <div class="form-text">Nunca compartiremos tu correo con nadie más.</div>
+                        </div>
+                        <div class="mb-3 form-group">
+                            <label asp-for="Telefono" class="form-label"></label>
+                            <input asp-for="Telefono" type="tel" class="form-control" placeholder="Ej: 612345678">
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-hand-holding-heart"></i>Paciente</legend>
+                        <div class="mb-3 form-group">
+                            <label asp-for="Tipo_Paciente" class="form-label"></label>
+                            <select asp-for="Tipo_Paciente" class="form-select">
+                                <option value="">-- Seleccione --</option>
+                                <option value="Niño">Niño</option>
+                                <option value="Adolecente">Adolecente</option>
+                                <option value="Adulto">Adulto</option>
+                            </select>
+                            <span asp-validation-for="Tipo_Paciente" class="text-danger"></span>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-cogs me-2"></i>Tratamientos</legend>
+                        <div class="mb-3 form-group">
+                            <label asp-for="Tipo_Tratamiento" class="form-label"></label>
+                            <select asp-for="Tipo_Tratamiento" class="form-select">
+                                <option value="">-- Seleccione --</option>
+                                <option value="Logopedia Infantil">Logopedia Infantil</option>
+                                <option value="Tratamiento del Autismo">Tratamiento del Autismo</option>
+                                <option value="Logopedia para Adultos">Logopedia para Adultos</option>
+                                <option value="Rehabilitación Auditiva">Rehabilitación Auditiva</option>
+                            </select>
+                            <span asp-validation-for="Tipo_Tratamiento" class="text-danger"></span>
+                        </div>
+                    </fieldset>
+
+                    @* <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-calendar-alt me-2"></i>Detalles de Cita</legend>
+                        <div class="mb-3">
+                            <label asp-for="Asunto" class="form-label"></label>
+                            <input asp-for="Asunto" type="text" class="form-control" placeholder="Asunto de la cita">
+                            <span asp-validation-for="Asunto" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Fecha_Cita" class="form-label"></label>
+                            <input asp-for="Fecha_Cita" type="datetime-local" class="form-control" />
+                            <span asp-validation-for="Fecha_Cita" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Observaciones" class="form-label"></label>
+                            <textarea asp-for="Observaciones" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Observaciones" class="text-danger"></span>
+                        </div>
+                    </fieldset> *@
+
+                    <fieldset class="mb-4 p-3 border rounded">
+                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-plus-circle me-2"></i>Turnos de Atención</legend>
+                        <div class="form-check mb-2 form-group">
+                            <input class="form-check-input" type="checkbox" asp-for="Turno_Manana">
+                            <label class="form-check-label" asp-for="Turno_Manana">
+                                Mañanas <i class="fas fa-sun text-warning ms-1"></i>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2 form-group">
+                            <input class="form-check-input" type="checkbox" asp-for="Turno_Tarde">
+                            <label class="form-check-label" asp-for="Turno_Tarde">
+                                Tardes <i class="fas fa-chair text-info ms-1"></i>
+                            </label>
+                        </div>
+                        <div class="form-check mb-2 form-group">
+                            <input class="form-check-input" type="checkbox" asp-for="Turno_Noche">
+                            <label class="form-check-label" asp-for="Turno_Noche">
+                                Noches <i class="fas fa-moon text-primary ms-1"></i>
+                            </label>
+                        </div>
+                        <div class="form-check form-group">
+                            <input class="form-check-input" type="checkbox" asp-for="Turno_Sabado">
+                            <label class="form-check-label" asp-for="Turno_Sabado">
+                                Sabados <i class="fas fa-robot text-secondary ms-1"></i>
+                            </label>
+                        </div>
+                        @* Mensaje de error para la validación de turnos (definido en el controlador) *@
+                        <span class="text-danger" data-valmsg-for="Turnos" data-valmsg-replace="true"></span>
+                    </fieldset>
+
+                    <div class="form-check mb-3 form-group">
+                        <input class="form-check-input" type="checkbox" asp-for="Desea_Alta_Usuario">
+                        <label class="form-check-label" asp-for="Desea_Alta_Usuario">
+                            <i class="fas fa-user-plus me-2 "></i>Deseo darme de alta como usuario.
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-3 form-group">
+                        <input class="form-check-input" type="checkbox" asp-for="Desea_Recibir_Novedades">
+                        <label class="form-check-label" asp-for="Desea_Recibir_Novedades">
+                            <i class="fas fa-newspaper me-2 "></i>Quiero recibir novedades.
+                        </label>
+                    </div>
+
+                    <div class="form-check mb-4 form-group">
+                        <input class="form-check-input" type="checkbox" id="privacidad" name="privacidad" required> 
+                        <label class="form-check-label" for="privacidad">
+                            <i class="fas fa-lock me-2"></i>Doy mi consentimiento para que esta web almacene la información que envío para que puedan responder a mi petición.
+                        </label>
+                        <div class="invalid-feedback">
+                            Debe Aceptar antes de Enviar.
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane me-2"></i>Enviar Formulario</button>
+                        <button type="reset" class="btn btn-outline-secondary me-md-2"><i class="fas fa-eraser me-2"></i>Restablecer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-6 text-start">
+                <a class="btn text-decoration-none" asp-controller="Home" asp-action="Terapeutas" style="color: #e83e8c;">
+                    <i class="fa-solid fa-arrow-left me-2"></i>Ir a la página de Conócenos
+                </a>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn text-decoration-none" asp-controller="Home" asp-action="Index" style="color: #e83e8c;">
+                    <i class="fa-solid fa-arrow-right ms-2"></i>Ir a la página de Inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@* Eror el Modal lo eliminamos ahora manjemos yn vista de confirmacion
+    El modal de éxito ahora será manejado por el controlador a través de TempData
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success-custom text-white">
+                    <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle me-2"></i>¡Envío Exitoso!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="lead">Tu Formulario ha sido enviado correctamente.</p>
+                    <p>Pronto nos pondremos en contacto contigo.</p>
+                    <i class="fas fa-thumbs-up fa-3x icon-success-custom my-3"></i>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success-custom" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            successModal.show();
+        });
+    </script>
+} *@
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

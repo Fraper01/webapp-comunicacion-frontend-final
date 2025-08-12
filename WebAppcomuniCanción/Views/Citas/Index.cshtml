@@ -1,0 +1,95 @@
+﻿@model List<WebAppcomuniCanción.Models.CitaDto> 
+
+@{
+    ViewData["Title"] = "Administrar Citas";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center my-4">Administrar Citas</h2>
+            <hr />
+        </div>
+    </div>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="bg-primary text-white">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre Completo</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Tipo Paciente</th>
+                        <th>Tipo Tratamiento</th>
+                        <th>Turnos Solicitados</th>
+                        <th>Fecha Solicitud</th>
+                        <th>Estatus</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cita in Model)
+                    {
+                        <tr>
+                            <td>@cita.Id_Citas</td>
+                            <td>@cita.Nombre @cita.Apellido</td>
+                            <td>@cita.Email</td>
+                            <td>@cita.Telefono</td>
+                            <td>@cita.Tipo_Paciente</td>
+                            <td>@cita.Tipo_Tratamiento</td>
+                            <td>@cita.TurnosSeleccionados.TrimEnd(',', ' ')</td>
+                            <td>@(cita.Fecha_Solicitud.HasValue ? cita.Fecha_Solicitud.Value.ToString("dd/MM/yyyy HH:mm") : "N/A")</td>
+                            <td>
+                                <span id="status-@cita.Id_Citas" class="badge @(cita.Estatus == "Pendiente" ? "bg-warning text-dark" : cita.Estatus == "Confirmada" ? "bg-success" : cita.Estatus == "Cancelada" ? "bg-danger" : "bg-info")">
+                                    @cita.Estatus
+                                </span>
+                            </td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <!select class="form-select form-select-sm status-dropdown" data-cita-id="@cita.Id_Citas" aria-label="Cambiar Estatus">
+                                    <option value="">Cambiar Estatus</option>
+                                    @{
+                                        var statusOptions = new List<string> { "Pendiente", "Confirmada", "Cancelada", "Completada" };
+
+                                        foreach (var optionValue in statusOptions)
+                                        {
+                                            string selectedAttr = (cita.Estatus == optionValue) ? "selected" : "";
+                                            <text>
+                                                <!option value="@optionValue" @Html.Raw(selectedAttr)>@optionValue<!/option>
+                                            </text>
+                                        }
+                                    }
+                                    <!/select>
+                                    <a asp-action="Details" asp-route-id="@cita.Id_Citas" class="btn btn-info btn-sm ms-2">Detalle</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            No hay citas registradas.
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> @* Para alertas bonitas *@
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> @* Necesario para $('input[name="__RequestVerificationToken"]').val() si lo usas *@
+    <script src="~/js/citasAdmin.js"></script>
+}
+

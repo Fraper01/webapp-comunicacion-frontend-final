@@ -1,0 +1,41 @@
+﻿@using WebAppcomuniCanción.Models
+@model AreaDto
+
+
+@{
+    ViewData["Title"] = "Áreas de Desarrollo";
+}
+
+<div class="containerF">
+    <h4 style="text-align:center">Agregar Área de Desarrollo"</h4>
+    <hr />
+        <form method="post" asp-action="AgregarArea" asp-controller="Areas">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-10">
+                    <label asp-for="Area_Desarrollo">Nombre Área:</label>
+                    <input asp-for="Area_Desarrollo" type="text" class="form-control" style="margin-top:5px;" />
+                    <span asp-validation-for="Area_Desarrollo" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label asp-for="Descipcion_Area">Descripción Área:</label>
+                <textarea id="Descipcion_Area" name="Descipcion_Area" rows="3" cols="50"></textarea>
+                    <span asp-validation-for="Descipcion_Area" class="text-danger"></span>
+            </div>
+            </div>
+        <button type="submit" class="btn btn-success" style="margin-top:10px;">ENVIAR</button>
+        </form>
+    <hr />
+    <div>
+        <a asp-action="Index">Retorna a la Tabla de Contenido</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

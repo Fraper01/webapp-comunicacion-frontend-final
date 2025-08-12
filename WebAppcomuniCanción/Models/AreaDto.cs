@@ -1,0 +1,18 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebAppcomuniCanción.Models
+{
+    public class AreaDto
+    {
+        [Key]
+        public int Id_Area { get; set; }
+        [Required(ErrorMessage = "El nombre del área es obligatorio.")]
+        [StringLength(100, ErrorMessage = "El nombre del área no puede exceder los 100 caracteres.")]
+        public string Area_Desarrollo { get; set; } = string.Empty;
+        public DateTime? Fecha_Registro { get; set; }
+        [StringLength(300, ErrorMessage = "La descripción del área no puede exceder los 300 caracteres.")]
+        public string? Descipcion_Area { get; set; }
+        public string? Usuario_Crea { get; set; }
+        public string? Equipo_Crea { get; set; }
+    }
+}
