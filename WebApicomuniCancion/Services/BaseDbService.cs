@@ -28,7 +28,7 @@ namespace WebApicomuniCancion.Services
             {
                 Console.Error.WriteLine($"Error de base de datos MySQL al abrir la conexión: {ex.Message}");
                 connection.Dispose(); 
-                throw; // Re-lanzar la excepción 
+                throw; 
             }
             catch (Exception ex)
             {
@@ -68,7 +68,7 @@ namespace WebApicomuniCancion.Services
             {
                 try
                 {
-                    return await action(connection); // Aquí sí esperamos un int del action
+                    return await action(connection); 
                 }
                 catch (MySqlException ex)
                 {
@@ -116,7 +116,7 @@ namespace WebApicomuniCancion.Services
             return result;
         }
 
-        protected async Task<List<T>> ExecuteReaderListAsync<T>(string sql, Func<MySqlDataReader, Task<T>> mapRow) where T : class // <-- ¡Aquí está el cambio clave en el parámetro mapRow!
+        protected async Task<List<T>> ExecuteReaderListAsync<T>(string sql, Func<MySqlDataReader, Task<T>> mapRow) where T : class 
         {
             var list = new List<T>();
 
