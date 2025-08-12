@@ -22,39 +22,32 @@ namespace WebAppcomuniCanción.Services
             _httpClient = httpClient;
             _baseApiUrl = configuration.GetValue<string>("ApiSettings:BaseUrl")
                           ?? throw new ArgumentNullException("ApiSettings:BaseUrl", "La URL base de la API no está configurada en appsettings.json.");
-            _httpClient.BaseAddress = new Uri(_baseApiUrl); // Establece la base para HttpClient
+            _httpClient.BaseAddress = new Uri(_baseApiUrl); 
         }
 
         public async Task<bool> CreateCitaAsync(CitaDto citaDto)
         {
             citaDto.Fecha_Solicitud = DateTime.Now;
 
-            // Serializa el objeto CitaDto a una cadena JSON
             var jsonContent = JsonSerializer.Serialize(citaDto);
 
-            // Crea un HttpContent con el JSON, especificando que es JSON
             var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
             try
             {
-                // Envía la solicitud POST al endpoint de Citas
                 var response = await _httpClient.PostAsync("api/Citas", httpContent);
 
-                // Verifica si la solicitud fue exitosa (códigos 2xx)
                 response.EnsureSuccessStatusCode();
 
                 return response.IsSuccessStatusCode;
             }
             catch (HttpRequestException ex)
             {
-                // Manejo de errores en caso de fallo de la solicitud HTTP
                 Console.WriteLine($"Error al crear área: {ex.Message}");
-                // Puedes loguear el error o lanzar una excepción más específica
                 return false;
             }
             catch (Exception ex)
             {
-                // Otros errores
                 Console.WriteLine($"Error inesperado al crear cita: {ex.Message}");
                 return false;
             }
@@ -64,7 +57,6 @@ namespace WebAppcomuniCanción.Services
         {
             try
             {
-                // El endpoint es "api/Citas/{id}" relativo a BaseAddress
                 var response = await _httpClient.GetAsync($"api/Citas/{id}");
                 response.EnsureSuccessStatusCode();
 
@@ -91,11 +83,9 @@ namespace WebAppcomuniCanción.Services
         {
             try
             {
-                // El endpoint es "api/Citas" relativo a BaseAddress
                 var response = await _httpClient.GetAsync("api/Citas");
-                response.EnsureSuccessStatusCode(); // Lanza excepción si no es 2xx
+                response.EnsureSuccessStatusCode(); 
 
-                // Usamos ReadFromJsonAsync para deserializar directamente
                 return await response.Content.ReadFromJsonAsync<List<CitaDto>>();
             }
             catch (HttpRequestException ex)
@@ -103,7 +93,7 @@ namespace WebAppcomuniCanción.Services
                 Console.WriteLine($"Error HTTP al obtener citas: {ex.Message}");
                 return null;
             }
-            catch (JsonException ex) // Para errores de deserialización
+            catch (JsonException ex) 
             {
                 Console.WriteLine($"Error de JSON al obtener citas: {ex.Message}");
                 return null;
@@ -119,7 +109,6 @@ namespace WebAppcomuniCanción.Services
         {
             try
             {
-                // Asume que tu API tiene un endpoint PUT api/Citas/{id}
                 var response = await _httpClient.PutAsJsonAsync($"api/Citas/{cita.Id_Citas}", cita);
                 response.EnsureSuccessStatusCode();
                 return response.IsSuccessStatusCode;
@@ -140,8 +129,6 @@ namespace WebAppcomuniCanción.Services
         {
             try
             {
-                // Este endpoint es el que creamos en la Web API: PUT api/Citas/{id}/estatus
-                // El cuerpo de la solicitud es directamente el string del nuevo estatus.
                 var response = await _httpClient.PutAsJsonAsync($"api/Citas/{id}/estatus", newStatus);
                 response.EnsureSuccessStatusCode();
                 return response.IsSuccessStatusCode;

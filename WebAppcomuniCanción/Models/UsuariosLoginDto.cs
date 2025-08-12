@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations; // ¡Añade este 'using'!
-
+﻿using System.ComponentModel.DataAnnotations;
 namespace WebAppcomuniCancion.Models
 {
     public class UsuariosLoginDto

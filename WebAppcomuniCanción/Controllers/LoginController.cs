@@ -16,20 +16,16 @@ namespace WebAppcomuniCancion.Controllers
             _usuariosApiService = usuariosApiService;
         }
 
-        // GET: /Login/Index
         public IActionResult Index()
         {
-            // Limpiamos los mensajes al cargar la página de login inicialmente
             ViewBag.LoginMessage = null;
             ViewBag.LoginSuccess = false;
-            return View(); // Muestra el formulario de login
+            return View(); 
         }
 
-        // POST: /Login/LoginUser
         [HttpPost]
         public async Task<IActionResult> LoginUser(UsuariosLoginDto model)
         {
-            // Restablecemos los mensajes al inicio de cada intento de POST
             ViewBag.LoginMessage = null;
             ViewBag.LoginSuccess = false;
 

@@ -28,7 +28,7 @@
                 <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
 
                 <form asp-action="Contacta" method="post">
-                    @Html.AntiForgeryToken() @* Es vital para la seguridad con [ValidateAntiForgeryToken] *@
+                    @Html.AntiForgeryToken() 
 
                     <fieldset class="mb-4 p-3 border rounded">
                         <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-user me-2"></i>Datos Personales</legend>
@@ -86,25 +86,6 @@
                         </div>
                     </fieldset>
 
-                    @* <fieldset class="mb-4 p-3 border rounded">
-                        <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-calendar-alt me-2"></i>Detalles de Cita</legend>
-                        <div class="mb-3">
-                            <label asp-for="Asunto" class="form-label"></label>
-                            <input asp-for="Asunto" type="text" class="form-control" placeholder="Asunto de la cita">
-                            <span asp-validation-for="Asunto" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="Fecha_Cita" class="form-label"></label>
-                            <input asp-for="Fecha_Cita" type="datetime-local" class="form-control" />
-                            <span asp-validation-for="Fecha_Cita" class="text-danger"></span>
-                        </div>
-                        <div class="mb-3">
-                            <label asp-for="Observaciones" class="form-label"></label>
-                            <textarea asp-for="Observaciones" class="form-control" rows="3"></textarea>
-                            <span asp-validation-for="Observaciones" class="text-danger"></span>
-                        </div>
-                    </fieldset> *@
-
                     <fieldset class="mb-4 p-3 border rounded">
                         <legend class="float-none w-auto px-2 fs-5 "><i class="fas fa-plus-circle me-2"></i>Turnos de Atención</legend>
                         <div class="form-check mb-2 form-group">
@@ -131,7 +112,6 @@
                                 Sabados <i class="fas fa-robot text-secondary ms-1"></i>
                             </label>
                         </div>
-                        @* Mensaje de error para la validación de turnos (definido en el controlador) *@
                         <span class="text-danger" data-valmsg-for="Turnos" data-valmsg-replace="true"></span>
                     </fieldset>
 
@@ -186,36 +166,6 @@
     </div>
 </section>
 
-
-@* Eror el Modal lo eliminamos ahora manjemos yn vista de confirmacion
-    El modal de éxito ahora será manejado por el controlador a través de TempData
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header bg-success-custom text-white">
-                    <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle me-2"></i>¡Envío Exitoso!</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <p class="lead">Tu Formulario ha sido enviado correctamente.</p>
-                    <p>Pronto nos pondremos en contacto contigo.</p>
-                    <i class="fas fa-thumbs-up fa-3x icon-success-custom my-3"></i>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-success-custom" data-bs-dismiss="modal">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var successModal = new bootstrap.Modal(document.getElementById('successModal'));
-            successModal.show();
-        });
-    </script>
-} *@
 
 @section Scripts {
     @{

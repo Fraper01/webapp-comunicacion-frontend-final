@@ -11,7 +11,7 @@ namespace WebAppcomuniCanción.Controllers
         private readonly ILogger<AreasController> logger; 
 
 
-        public AreasController(IAreasApiService areasApiService, ILogger<AreasController> _logger) // Inyección de dependencia
+        public AreasController(IAreasApiService areasApiService, ILogger<AreasController> _logger) 
         {
             _areasApiService = areasApiService;
             logger = _logger;
@@ -19,14 +19,13 @@ namespace WebAppcomuniCanción.Controllers
         public async Task<IActionResult> Index() 
         {
             List<AreaDto> areas = await _areasApiService.GetAreasAsync();
-            return View(areas); // Pasa la lista de áreas a la vista
+            return View(areas); 
         }
         [HttpGet]
         public async Task<IActionResult> AgregarArea()
         {
             try
             {
-                // Obtener la lista de especialidades desde la API solo para que dispare la excepción si la webapi no está corriendo
                 List<AreaDto> especialidadesDto = await _areasApiService.GetAreasAsync();
                 ViewBag.titulo = "AGREGAR UNA NUEVA AREA DE DESARROLLO";
                 return View();
@@ -38,7 +37,7 @@ namespace WebAppcomuniCanción.Controllers
                     if (socketEx.SocketErrorCode == System.Net.Sockets.SocketError.ConnectionRefused)
                     {
                         TempData["MensajeError"] = "No se pudo conectar con la API de Areas de Desarrollo. Compruebe que la API esté en ejecución.";
-                        logger.LogError(ex, "Error al obtener Areas de Desarrollo: Conexión rechazada."); // Log
+                        logger.LogError(ex, "Error al obtener Areas de Desarrollo: Conexión rechazada."); 
                     }
                     else
                     {
@@ -68,12 +67,11 @@ namespace WebAppcomuniCanción.Controllers
             {
                 try
                 {
-                    // Llamada a la API
                     bool agregado = await _areasApiService.CreateAreaAsync(areadto);
                     if (agregado)
                     {
                         TempData["MensajeExito"] = "Area de Desarrollo agregada correctamente.";
-                        return RedirectToAction(nameof(Index)); // Redirigir a la lista de areas de desarrollo
+                        return RedirectToAction(nameof(Index)); 
                     }
                     else
                     {
@@ -83,38 +81,33 @@ namespace WebAppcomuniCanción.Controllers
                 }
                 catch (Exception ex)
                 {
-                    // Log the error
                     TempData["MensajeError"] = ex.Message;
                     ModelState.AddModelError(string.Empty, "Error al agregar el Area de Desarrollo.");
                 }
             }
-            return View(areadto); // Mostrar la vista con errores
+            return View(areadto); 
         }
-        // GET: Areas/Edit/5
-        // Muestra el formulario de edición con los datos del área precargados.
         public async Task<IActionResult> EditarArea(int? id) 
         {
             if (id == null)
             {
-                return NotFound(); // Si no se proporciona un ID, es un error 404
+                return NotFound(); 
             }
 
             var area = await _areasApiService.GetAreaByIdAsync(id.Value); 
 
             if (area == null)
             {
-                return NotFound(); // Si el área no se encuentra en la API
+                return NotFound(); 
             }
 
-            return View(area); // Pasa el AreaDto a la vista
+            return View(area); 
         }
 
-        // Procesa los datos enviados desde el formulario de edición para actualizar el área.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditarArea(int id, AreaDto areaDto)
         {
-            // Validar que el ID de la URL coincida con el ID del objeto enviado
             if (id != areaDto.Id_Area)
             {
                 return BadRequest("ID de área no válido.");
@@ -126,7 +119,7 @@ namespace WebAppcomuniCanción.Controllers
                 if (success)
                 {
                     TempData["SuccessMessage"] = "Área de Desarrollo actualizada exitosamente.";
-                    return RedirectToAction(nameof(Index)); // Redirige a la lista después de actualizar
+                    return RedirectToAction(nameof(Index)); 
                 }
                 ModelState.AddModelError("", "Error al actualizar el área de desarrollo en la API.");
             }

@@ -12,7 +12,7 @@ namespace WebAppcomuniCanción.Controllers
     {
         private readonly ICitasApiService _citasApiService;
         private readonly ILogger<CitasController> logger;
-        public CitasController(ICitasApiService citasApiService, ILogger<CitasController> _logger) // Inyección de dependencia
+        public CitasController(ICitasApiService citasApiService, ILogger<CitasController> _logger) 
         {
             _citasApiService = citasApiService;
             logger = _logger;
@@ -24,32 +24,26 @@ namespace WebAppcomuniCanción.Controllers
 
             if (citas == null)
             {
-                // Puedes añadir un mensaje de error a ViewData o TempData si la API falla
                 ViewBag.ErrorMessage = "No se pudieron cargar las citas. Intente de nuevo más tarde.";
                 logger.LogError("GetCitasAsync devolvió null o falló.");
-                citas = new List<CitaDto>(); // Para evitar errores en la vista si la lista es null
+                citas = new List<CitaDto>(); 
             }
             return View(citas);
         }
      
-        // GET: Muestra el formulario para agendar una nueva cita
         public IActionResult Contacta()
         {
-            // Pasa un nuevo CitaDto a la vista para que el formulario se enlace a él
             return View(new CitaDto());
         }
 
-        // POST: Recibe los datos del formulario y los envía a la API
         [HttpPost]
-        [ValidateAntiForgeryToken] // Protección contra ataques CSRF
+        [ValidateAntiForgeryToken] 
         public async Task<IActionResult> Contacta(CitaDto citaDto)
         {
-            // Validar manualmente si al menos un turno está seleccionado
             if (!citaDto.Turno_Manana && !citaDto.Turno_Tarde && !citaDto.Turno_Noche && !citaDto.Turno_Sabado)
             {
                 ModelState.AddModelError(string.Empty, "Debe seleccionar al menos un turno (Mañana, Tarde, Noche o Sábado).");
             }
-            // VALIDACIÓN MANUAL PARA EL CHECKBOX DE PRIVACIDAD
             bool privacidadAceptada = Request.Form.ContainsKey("privacidad");
 
             if (!privacidadAceptada)
@@ -80,10 +74,8 @@ namespace WebAppcomuniCanción.Controllers
             return View();
         }
 
-        // POST: /CitasWeb/UpdateStatus (esto será llamado por JavaScript/AJAX desde la vista)
-        // Esta acción actualizará el estatus de una cita específica.
         [HttpPost]
-        [ValidateAntiForgeryToken] // Descomenta esta línea si estás usando tokens Anti-forgery
+        [ValidateAntiForgeryToken] 
         public async Task<IActionResult> UpdateStatus([FromBody] UpdateStatusRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.NewStatus))
@@ -91,7 +83,6 @@ namespace WebAppcomuniCanción.Controllers
                 return BadRequest("El nuevo estatus no puede estar vacío.");
             }
 
-            // Opcional: Validar que newStatus sea uno de los valores permitidos en el cliente también
             string[] allowedStatuses = { "Pendiente", "Confirmada", "Cancelada", "Completada" };
             if (!allowedStatuses.Contains(request.NewStatus))
             {
@@ -108,7 +99,6 @@ namespace WebAppcomuniCanción.Controllers
                 }
                 else
                 {
-                    // Esto podría ser un 404 si la cita no se encontró en la API
                     return StatusCode(404, new { success = false, message = $"Cita con ID {request.Id} no encontrada o error al actualizar." });
                 }
             }
@@ -120,15 +110,12 @@ namespace WebAppcomuniCanción.Controllers
         }
 
 
-        // Modelo auxiliar para la solicitud de actualización de estatus
         public class UpdateStatusRequest
         {
             public int Id { get; set; }
             public string? NewStatus { get; set; }
         }
 
-        // GET: /CitasWeb/Details/5 (para ver el detalle de una cita, si lo implementas)
-        // Esta acción cargará los detalles de una cita específica.
         public async Task<IActionResult> Details(int id)
         {
             CitaDto? cita = await _citasApiService.GetCitaByIdAsync(id);

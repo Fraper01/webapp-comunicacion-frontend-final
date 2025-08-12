@@ -9,7 +9,6 @@ using WebAppcomuniCancion.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Si tu WebAPI usa 5000/7000, entonces 5001/7001 para la WebApp evitar el conflicto.
 builder.WebHost.UseUrls("http://localhost:5001", "https://localhost:7001");
 
 //Add services to the container.
@@ -35,7 +34,6 @@ builder.Services.AddHttpClient<ICitasApiService, CitasApiService>(client =>
 #pragma warning restore CS8604 // Posible argumento de referencia nulo
 });
 
-// Esto es necesario para que las sesiones funcionen. MemoryCache es para desarrollo.
 builder.Services.AddDistributedMemoryCache();
 
 builder.Services.AddSession(options =>
@@ -47,8 +45,6 @@ builder.Services.AddSession(options =>
 
 
 var app = builder.Build();
-//app.Urls.Add("http://localhost:5001");
-//app.Urls.Add("https://localhost:7001"); 
 
 
 // Configure the HTTP request pipeline.

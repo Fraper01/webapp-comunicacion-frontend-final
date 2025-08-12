@@ -4,13 +4,12 @@
     --bg-black-50: #e8dfec;
     --text-black-900: #302e4d;
     --text-black-700: #504e70;
-    --modal-success-color: #6f42c1; /* Color base violeta/púrpura */
-    --modal-success-color-dark: #5a369e; /* Tono más oscuro para hover */
-    --modal-success-text-color: #ffffff; /* Texto blanco para fondos oscuros */
+    --modal-success-color: #6f42c1; 
+    --modal-success-color-dark: #5a369e; 
+    --modal-success-text-color: #ffffff; 
     --text-pink-subrayado: #e83e8c;
 }
 
-/* Limpiar el estilo de los enlaces */
 * {
     margin: 0;
     padding: 0;
@@ -71,57 +70,50 @@ html {
 
 
 table {
-    color: #fff; /* Cambia el color del texto de la tabla a blanco */
-    font-size: 14px; /* Aumenta el tamaño de la fuente de la tabla */
-    table-layout: fixed; /* Hace que la tabla tenga un ancho fijo */
-    border-collapse: collapse; /* Elimina los espacios entre celdas */
+    color: #fff; 
+    font-size: 14px; 
+    table-layout: fixed;
+    border-collapse: collapse; 
 }
 
 thead {
-    background-color: rgba(126,239,145,0.592); /* Cambia el color de fondo del encabezado de la tabla a gris oscuro */
+    background-color: rgba(126,239,145,0.592); 
 }
 
-/* Cambia solo a las tr(filas) de tbody */
 tbody tr {
-    cursor: pointer; /* Cambia el cursor a una mano al pasar sobre las filas */
-    transition: all 0.3s ease; /* Añade una transición suave a todos los cambios de estilo */
+    cursor: pointer; 
+    transition: all 0.3s ease; 
     color: #fff; 
 }
 
-    /* Cambia el color de fondo de las filas al pasar el cursor por encima se */
-    /* seudo clase :hover */
     tbody tr:hover {
-        background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de fondo al pasar el cursor sobre las filas */
-        font-size: 1.1rem; /* Aumenta el tamaño de la fuente al pasar el cursor sobre las filas */
-        color: #fff; /* Cambia el color del texto al pasar el cursor sobre las filas */
+        background-color: rgba(255, 255, 255, 0.1); 
+        font-size: 1.1rem; 
+        color: #fff; 
     }
 
 th {
-    padding: 20px 40px 25px 20px; /* Añade espacio alrededor del texto en las celdas del encabezado */
-    /* su orden es: arriba, derecha, abajo, izquierda */
-    /* si se coloca uno solo valor, se aplica a todos los lados */
-    /* si se colocan dos valores, el primero es para arriba y abajo, el segundo para derecha e izquierda */
-    font-weight: 700; /* Hace que el texto del encabezado sea negrita */
-    text-transform: uppercase; /* Convierte el texto del encabezado a mayúsculas */
-    text-align: center; /* Alinea el texto al centro */
+    padding: 20px 40px 25px 20px; 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    text-align: center; 
 }
 
 td {
-    padding: 20px 40px 25px 20px; /* Añade espacio alrededor del texto en las celdas */
-    /* su orden es: arriba, derecha, abajo, izquierda */
-    border-bottom: solid 1px rgba(255,255,255,0.2); /* Añade un borde inferior sutil a las celdas */
+    padding: 20px 40px 25px 20px; 
+    border-bottom: solid 1px rgba(255,255,255,0.2); 
 }
 
 .tdcenter {
-    text-align: center; /* Alinea el texto al centro */
+    text-align: center; 
 }
 
 .tdleft {
-    text-align: left; /* Alinea el texto a la izquierda */
+    text-align: left; 
 }
 
 .tdright {
-    text-align: right; /* Alinea el texto a la derecha */
+    text-align: right; 
 }
 
 .botonAcciones {
@@ -131,11 +123,11 @@ td {
 }
 
 .botonEdit {
-    background-color: #77dd77; /* Color verde pastel */
+    background-color: #77dd77; 
     border: none;
-    border-radius: 8px; /* Puntas redondeadas */
-    color: black; /* Letra de color blanco */
-    padding: 8px 12px; /* Espaciado entre el texto y el borde */
+    border-radius: 8px; 
+    color: black; 
+    padding: 8px 12px; 
     font-size: 0.9em;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -148,11 +140,11 @@ td {
     }
 
 .botonDetails {
-    background-color: #6fa8dc; /* Color azul pastel */
+    background-color: #6fa8dc; 
     border: none;
-    border-radius: 8px; /* Puntas redondeadas */
-    color: black; /* Letra de color blanco */
-    padding: 8px 12px; /* Espaciado entre el texto y el borde */
+    border-radius: 8px; 
+    color: black; 
+    padding: 8px 12px; 
     font-size: 0.9em;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -165,11 +157,11 @@ td {
     }
 
 .botonDelete {
-    background-color: #ea9999; /* Color rojo pastel */
+    background-color: #ea9999; 
     border: none;
-    border-radius: 8px; /* Puntas redondeadas */
-    color: black; /* Letra de color blanco */
-    padding: 8px 12px; /* Espaciado entre el texto y el borde */
+    border-radius: 8px; 
+    color: black; 
+    padding: 8px 12px; 
     font-size: 0.9em;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -181,10 +173,8 @@ td {
         color: white;
     }
 
-/*Comienzo de mi proyecto lugo hay que acomodar todo*/
 
 .hearder-img {
-    /* imagen inyectada desde css se carga como fondo*/
     width: 100%;
     height: 20vh;
     background-size: cover;
@@ -192,42 +182,37 @@ td {
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    justify-content: center; /* Centra el contenido vertical y horizontalmente */
+    justify-content: center; 
 }
 .header-contenedor {
-    /*display: grid; /* Habilita Flexbox para los hijos directos */
-    /*grid-template-columns: 15% 70% 15%; /* Define las 3 columnas en porcentajes */
     width: 100%;
-    position: sticky; /* Hace que el menú se quede fijo al hacer scroll */
-    top: 0; /* Se queda pegado al top del viewport */
-    z-index: 1000; /* Asegura que el menú esté por encima de otros elementos */
+    position: sticky; 
+    top: 0; 
+    z-index: 1000; 
     opacity: 1;
 }
-/* coloca las rejillas flexibles para su mejor manejo */
 .header-logo {
-    display: flex; /* Usamos flexbox para centrar el logo dentro de este div */
-    justify-self: center; /* Centra horizontalmente el contenido de esta celda */
-    align-self: center; /* Centra verticalmente el contenido de esta celda */
+    display: flex; 
+    justify-self: center; 
+    align-self: center; 
 }
-.header-logo img { /* Estilos para la imagen real dentro del div */
-    max-width: 100%; /* Asegura que la imagen no desborde su contenedor (.header-logo) */
-    height: auto; /* Mantiene la proporción de la imagen */
-    /*border-radius: 50%;*/ /* Hace que la imagen sea circular */   
-    object-fit: cover; /* Asegura que la imagen cubra todo el espacio del contenedor */
-    /*box-shadow: 0 0 5px rgba(0,0,0,0.5);*/ /* Añade una sombra sutil a la imagen */
+.header-logo img { 
+    max-width: 100%; 
+    height: auto; 
+    object-fit: cover;
 }
 .header-centro {
-    display: grid; /* Habilita Grid para los hijos directos */
+    display: grid; 
     grid-template-rows: 50% 50%;
-    grid-template-columns: 100%; /* Asegura que solo haya una columna que ocupe todo el ancho */
-    align-items: center; /* Centra los ítems verticalmente en cada celda de fila */
-    justify-items: center; /* Centra los ítems horizontalmente en cada celda de fila */
+    grid-template-columns: 100%; 
+    align-items: center; 
+    justify-items: center; 
 }
 .hearder-titulo {
-    color: white; /* Cambia el color del texto a blanco */
-    font-size: 1.5rem; /* Aumenta el tamaño de la fuente del título */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Añade una sombra al texto para mejorar la legibilidad */
-    text-align: center; /* Centra el texto horizontalmente */
+    color: white; 
+    font-size: 1.5rem; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    text-align: center; 
 }
 .header-menu {
     width: 100%;
@@ -237,19 +222,16 @@ td {
 }
 
 .header-inicioSecc {
-    justify-self: center; /* Centra horizontalmente el contenido de esta celda */
-    align-self: center; /* Centra verticalmente el contenido de esta celda */
+    justify-self: center; 
+    align-self: center; 
 }
 
 .my-transparent-bg {
     background-color: transparent !important;
 }
 
-/* estilos.css swl mwnu nio */
 
 .navbar-nav .nav-link {
-    /*font-size: 1.15rem;*/ /* O el fs-5 de Bootstrap si lo prefieres */
-    /*color: white;*/ /* Color blanco por defecto */
     transition: background-color 0.3s ease, color 0.3s ease; 
     padding: 0.5rem 1rem; 
     border-radius: 0.25rem; 
@@ -540,21 +522,18 @@ td {
    Estilos Generales y Componentes del Formulario
    ========================================================================== */
 
-/* Secciones generales */
 .section {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
 
-/* Encabezados principales  */
 .heading-group .main-title {
     font-size: 2.5rem;
     font-weight: 700; 
     margin-bottom: 2rem;
-    text-transform: capitalize; /* Convertir a mayúsculas */
-    /*color: var(--bs-secondary);*/ /* Usa el color secundario de Bootstrap */
-    position: relative; /* Para el posible subrayado animado si lo añades */
-    display: inline-block; /* Para centrar con text-center en el padre */
+    text-transform: capitalize; 
+    position: relative; 
+    display: inline-block; 
 }
 
 .heading-group .main-title span {
@@ -562,7 +541,6 @@ td {
         z-index: 1;
 }
 
-/* Opcional: Subrayado decorativo para el main-title */
 .heading-group .main-title span::after {
     content: '';
     display: block;
@@ -575,48 +553,43 @@ td {
     border-radius: 3px;
 }
 
-/* Estilo para el título del formulario (H3) */
 .card-title {
-    font-weight: 600; /* Un poco menos negrita que el main-title */
-    color: var(--text-pink-subrayado); /* Asegura que este h3 use tu color primary */
+    font-weight: 600; 
+    color: var(--text-pink-subrayado); 
 }
 
-/* Fieldsets y Legends del formulario */
 fieldset {
-    border: 1px solid #dee2e6; /* Borde suave de Bootstrap */
-    padding: 1.5rem; /* Espaciado interno */
-    margin-bottom: 1.5rem; /* Espacio debajo */
-    border-radius: 0.5rem; /* Esquinas redondeadas */
+    border: 1px solid #dee2e6; 
+    padding: 1.5rem; 
+    margin-bottom: 1.5rem; 
+    border-radius: 0.5rem; 
 }
 
 legend {
-    width: auto; /* Ajusta el ancho al texto de la leyenda */
-    padding: 0 10px; /* Padding horizontal para separar del borde */
-    font-size: 1.25rem; /* Tamaño de fuente */
+    width: auto; 
+    padding: 0 10px; 
+    font-size: 1.25rem; 
     font-weight: bold;
-    color: var(--text-pink-subrayado); /* Usa tu color primary para la leyenda */
-    border-bottom: none; /* Eliminar el posible borde inferior que algunos navegadores añaden */
-    float: none; /* Asegura que no flote y ocupe su espacio normal */
+    color: var(--text-pink-subrayado); 
+    border-bottom: none; 
+    float: none; 
 }
 
-    /* Ajustes para los iconos dentro de las leyendas */
     legend .fas {
-        vertical-align: middle; /* Alinea el icono con el texto */
-        margin-right: 0.5rem; /* Pequeño espacio a la derecha del icono */
+        vertical-align: middle; 
+        margin-right: 0.5rem; 
     }
 
-/* Estilo para los iconos en los labels de los checkboxes */
 .form-check-label .fas {
-    font-size: 0.9em; /* Íconos ligeramente más pequeños en los labels */
-    vertical-align: middle; /* Alinea el icono con el texto */
-    margin-left: 0.25rem; /* Pequeño espacio a la izquierda del icono */
+    font-size: 0.9em; 
+    vertical-align: middle; 
+    margin-left: 0.25rem; 
 }
 
-/* Botón de Envío del Formulario */
 .btn-primary {
     background-color: var(--text-pink-subrayado) !important;
     border-color: var(--text-pink-subrayado) !important;
-    color: var(--modal-success-text-color) !important; /* Texto blanco en el botón primary */
+    color: var(--modal-success-text-color) !important; 
     font-weight: 500;
     padding: 0.6rem 1.2rem;
 }
@@ -626,7 +599,6 @@ legend {
         border-color: var(--modal-success-color-dark) !important;
     }
 
-/* Botón Restablecer */
 .btn-outline-secondary {
     color: var(--bs-secondary);
     border-color: var(--bs-secondary);
@@ -637,10 +609,9 @@ legend {
         color: #fff;
     }
 
-/* Pie de página */
 footer.footer {
-    background-color: var(--bs-light); /* Fondo ligero, como el de las secciones */
-    border-top: 1px solid #e9ecef; /* Un pequeño borde superior */
+    background-color: var(--bs-light); 
+    border-top: 1px solid #e9ecef; 
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
 }
@@ -654,42 +625,37 @@ footer .text-muted {
    Estilos del Modal de Éxito (¡Exclusivamente controlados por CSS!)
    ========================================================================== */
 
-/* Encabezado del Modal de Éxito */
 .modal-header.bg-success-custom {
     background-color: var(--modal-success-color) !important; 
-    color: var(--modal-success-text-color) !important; /* Asegura el texto blanco */
-    border-bottom: none; /* Quita el borde inferior de Bootstrap */
-    padding: 1.5rem; /* Espaciado interno */
+    color: var(--modal-success-text-color) !important; 
+    border-bottom: none; 
+    padding: 1.5rem; 
 }
 
 .modal-header .modal-title {
     font-weight: 700;
 }
 
-/* El botón de cierre de Bootstrap en fondos oscuros */
-/* Asegura que el ícono 'x' sea visible en el fondo violeta */
 .modal-header .btn-close-white {
-    filter: invert(1) grayscale(100%) brightness(200%); /* Hace el icono de cierre blanco */
-    opacity: 0.8; /* Ligeramente transparente */
+    filter: invert(1) grayscale(100%) brightness(200%); 
+    opacity: 0.8; 
 }
 
     .modal-header .btn-close-white:hover {
-        opacity: 1;*/ /* Opacidad completa al pasar el ratón */
+        opacity: 1;
     }
 
-/* Ícono de "pulgar arriba" en el cuerpo del modal */
 .modal-body .icon-success-custom {
-    color: var(--modal-success-color) !important; /* Aplica tu violeta primary al ícono */
+    color: var(--modal-success-color) !important; 
 }
 
-/* Botón "Aceptar" del Modal de Éxito */
 .btn-success-custom {
     background-color: var(--modal-success-color) !important;
     border-color: var(--modal-success-color) !important;
-    color: var(--modal-success-text-color) !important; /* Asegura el texto blanco en el botón */
+    color: var(--modal-success-text-color) !important; 
     font-weight: 500;
-    padding: 0.6rem 1.5rem; /* Similar al botón de envío */
-    border-radius: 0.375rem; /* Bordes redondeados de Bootstrap */
+    padding: 0.6rem 1.5rem; 
+    border-radius: 0.375rem; 
 }
 
     .btn-success-custom:hover {
@@ -698,26 +664,20 @@ footer .text-muted {
     }
 
 .modal-footer {
-    border-top: none; /* Elimina el borde superior del footer del modal */
-    /*padding-bottom: 1.5rem;*/ /* Más espacio en la parte inferior */
+    border-top: none; 
 }
 
-/* Estilo para los asteriscos de campos requeridos */
-/* Selector para labels que son seguidas inmediatamente por un input con 'data-val-required' */
 .form-group label.control-label:has(+ [data-val-required]):after,
 .form-group label.form-label:has(+ [data-val-required]):after {
-    content: " *"; /* Añade un asterisco */
-    color: red; /* Color del asterisco */
-    font-weight: bold; /* Opcional: para que resalte más */
+    content: " *"; 
+    color: red; 
+    font-weight: bold; 
 }
 
-/* Para otros elementos como <select> donde el input no es adyacente inmediato,
-   pero sigue siendo hermano y tiene data-val-required.
-*/
 .form-group label.form-label:has(~ [data-val-required]):after,
 .form-group label.control-label:has(~ [data-val-required]):after {
-    content: " *"; /* Añade un asterisco */
-    color: red; /* Color del asterisco */
-    font-weight: bold; /* Opcional: para que resalte más */
+    content: " *"; 
+    color: red; 
+    font-weight: bold; 
 }
 
