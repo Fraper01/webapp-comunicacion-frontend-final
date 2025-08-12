@@ -58,5 +58,7 @@ namespace WebAppcomuniCanción.Models
             (Turno_Noche ? "Noche, " : "") +
             (Turno_Sabado ? "Sábado, " : "");
 
+
+
     }
 }
