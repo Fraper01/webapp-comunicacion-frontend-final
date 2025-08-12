@@ -83,7 +83,7 @@ namespace WebApicomuniCancion.Services
             }
         }
 
-        protected async Task<T> ExecuteReaderAsync<T>(string sql, Action<MySqlCommand> addParameters, Func<MySqlDataReader, Task<T?>> readData) where T : new() // ¡Cambio aquí en el Func!
+        protected async Task<T> ExecuteReaderAsync<T>(string sql, Action<MySqlCommand> addParameters, Func<MySqlDataReader, Task<T?>> readData) where T : new()
         {
             T? result = default; 
 
